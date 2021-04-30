@@ -1,0 +1,25 @@
+package com.selenium.baseclass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BookMyShow {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\roop saravan teja\\Anaconda3\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        //Opening BookMyShow WebSite
+        driver.get("http://in.bookmyshow.com ");
+        //Signing In
+        driver.findElement(By.className("sc-fQejPQ jWuMjc")).click();
+        driver.findElement(By.id("mobileNo")).sendKeys("7702395213");
+        driver.findElement(By.className("sc-cJSrbW czBflG")).click();
+        //Selecting City
+        driver.findElement(By.className("sc-RcBXQ dTleyQ ellipsis")).click();
+        driver.findElement(By.name("HYD")).click();
+        //Selecting Movie
+        driver.findElement(By.name("Tom & Jerry")).isSelected();
+        //Searching Movie on Search Bar
+        driver.findElement(By.name("text")).sendKeys("Tom & Jerry");
+    }
+}
